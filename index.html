@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arcade Hub — Browser Games</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Main Menu -->
+    <div id="main-menu" class="screen active">
+      <h1 class="title">🎮 Arcade Hub</h1>
+      <p class="subtitle">Choose a game</p>
+      <div class="menu-grid">
+        <button class="menu-btn" data-game="snake">
+          <span class="icon">🐍</span>
+          <span class="name">Snake</span>
+        </button>
+        <button class="menu-btn" data-game="breakout">
+          <span class="icon">🧱</span>
+          <span class="name">Breakout</span>
+        </button>
+        <button class="menu-btn" data-game="memory">
+          <span class="icon">🧠</span>
+          <span class="name">Memory</span>
+        </button>
+        <button class="menu-btn" data-game="tictactoe">
+          <span class="icon">❌⭕</span>
+          <span class="name">Tic-Tac-Toe</span>
+        </button>
+        <button class="menu-btn" data-game="rps">
+          <span class="icon">🪨📄✂️</span>
+          <span class="name">Rock Paper Scissors</span>
+        </button>
+      </div>
+      <div class="high-scores-preview" id="high-scores-preview"></div>
+    </div>
+
+    <!-- Game Container (shared) -->
+    <div id="game-container" class="screen">
+      <header class="game-header">
+        <button id="btn-back" class="btn btn-secondary">← Menu</button>
+        <h2 id="game-title"></h2>
+        <div class="header-stats">
+          <span id="score-display">Score: 0</span>
+          <span id="high-score-display">Best: 0</span>
+        </div>
+      </header>
+
+      <div class="controls-bar">
+        <label>
+          Difficulty:
+          <select id="difficulty-select">
+            <option value="easy">Easy</option>
+            <option value="medium" selected>Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </label>
+        <button id="btn-restart" class="btn btn-primary">Restart</button>
+        <button id="btn-pause" class="btn btn-secondary" style="display:none;">Pause</button>
+      </div>
+
+      <div id="game-area">
+        <!-- Canvas or game-specific DOM injected here -->
+      </div>
+
+      <div id="game-message" class="game-message" style="display:none;"></div>
+    </div>
+
+    <!-- Win / Lose Overlay -->
+    <div id="overlay" class="overlay" style="display:none;">
+      <div class="overlay-content">
+        <h2 id="overlay-title"></h2>
+        <p id="overlay-score"></p>
+        <p id="overlay-message"></p>
+        <div class="overlay-buttons">
+          <button id="overlay-restart" class="btn btn-primary">Play Again</button>
+          <button id="overlay-menu" class="btn btn-secondary">Main Menu</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- All 6 JS files loaded explicitly (no modules) -->
+  <script src="js/snake.js"></script>
+  <script src="js/breakout.js"></script>
+  <script src="js/memory.js"></script>
+  <script src="js/tictactoe.js"></script>
+  <script src="js/rps.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
